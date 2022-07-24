@@ -29,6 +29,7 @@ jobs:
           docker build . --file Dockerfile --tag $GITHUB_REF_IMAGE --tag $GITHUB_BRANCH_IMAGE
           echo "Pushing Image to GitHub Container Registry"
           docker push $GITHUB_REF_IMAGE
+          docker push $GITHUB_BRANCH_IMAGE
       - name: Upload Next build          # Upload the artifact
         uses: actions/upload-artifact@v2
         with:
