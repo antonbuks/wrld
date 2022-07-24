@@ -27,7 +27,6 @@ jobs:
           export GITHUB_REF_IMAGE=ghcr.io/$GITHUB_REPOSITORY:$GITHUB_SHA
           export GITHUB_BRANCH_IMAGE=ghcr.io/$GITHUB_REPOSITORY:$TAG
           docker build . --file Dockerfile --tag $GITHUB_REF_IMAGE --tag $GITHUB_BRANCH_IMAGE
-          docker tag $GITHUB_SHA $GITHUB_REF_IMAGE
           echo "Pushing Image to GitHub Container Registry"
           docker push $GITHUB_REF_IMAGE
       - name: Upload Next build          # Upload the artifact
